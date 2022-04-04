@@ -3,7 +3,7 @@ const User = require("../model/model");
 exports.createUser = async (req, res) => {
   try {
     const newUser = await User.create(req.body);
-    res.redirect("/all-songs");
+    res.redirect("/");
   } catch (err) {
     res.status(400).json({
       status: "failed",

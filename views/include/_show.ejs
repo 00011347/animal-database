@@ -7,17 +7,14 @@
     <td><%=users[i].status%></td>
     <td>
       <!-- update -->
-      <a
-        href="/update-user/<%=users[i]._id%>"
-        class="btn border-shadow update"
-      >
+      <a href="/update-user/<%=users[i]._id%>" class="btn border-shadow update">
         <span class="text-gradient">
           <i class="fas fa-pencil-alt"></i>
         </span>
       </a>
 
       <!-- delete -->
-      <a href="#" class="btn border-shadow delete">
+      <a data-id="<%= users[i]._id%>" class="btn border-shadow delete">
         <span class="text-gradient">
           <i class="fas fa-times"></i>
         </span>
