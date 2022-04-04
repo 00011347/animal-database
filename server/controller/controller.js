@@ -31,7 +31,7 @@ exports.getAllUsers = async (req, res) => {
     });
   } catch (err) {
     res.status(err.statusCode).json({
-      message: "Couldn't get Songs",
+      message: "Couldn't get data",
       status: err.statusCode,
       reason: err,
     });
@@ -55,12 +55,7 @@ exports.updateUser = async (req, res) => {
       runValidators: true,
     });
 
-    res.status(200).json({
-      status: "success",
-      data: {
-        user,
-      },
-    });
+    //res.redirect('/')
   } catch (err) {
     res.status(err.statusCode).json({
       message: "Something went wrong",

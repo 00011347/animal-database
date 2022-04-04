@@ -15,7 +15,7 @@ $("#update_user").submit(function (event) {
   console.log(data);
 
   var request = {
-    url: `http://localhost:3000/api/users/${data.id}`,
+    url: `/api/users/${data.id}`,
     method: "PUT",
     data: data,
   };
@@ -23,6 +23,7 @@ $("#update_user").submit(function (event) {
   $.ajax(request).done(function (response) {
     alert("Data updated Successfully");
   });
+  window.location.replace("/");
 });
 
 $("a.delete").click(function () {
@@ -30,7 +31,7 @@ $("a.delete").click(function () {
   var id = $(this).attr("data-id");
 
   var request = {
-    url: `api/users/${id}`,
+    url: `/api/users/${id}`,
     method: "DELETE",
   };
 

@@ -1,4 +1,3 @@
-const axios = require("axios");
 const Userdb = require("../model/model.js");
 
 exports.homeRoutes = async (req, res) => {
@@ -7,14 +6,12 @@ exports.homeRoutes = async (req, res) => {
 };
 
 exports.add_user = (req, res) => {
-  res.render("add_user");
+  res.render("add_user.ejs");
 };
 exports.update_user = async (req, res) => {
   try {
     const userData = await Userdb.findByIdAndUpdate(req.params.id);
-    console.log("userData");
-    console.log(userData);
-    console.log("userData");
+
     res.render("update_user.ejs", { user: userData });
   } catch (error) {
     res.status(404).send({
