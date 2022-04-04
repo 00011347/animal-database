@@ -35,7 +35,7 @@ $("a.delete").click(function () {
     method: "DELETE",
   };
 
-  if (confirm("Are you sure?")) {
+  if (confirm("Do you really want to DELETE?")) {
     $.ajax(request).done(function (response) {
       alert("Success!");
       location.reload();

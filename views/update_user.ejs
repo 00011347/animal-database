@@ -55,15 +55,15 @@
         </div>
 
         <div class="form-group">
-          <label for="gender" class="text-light">Vaccinated </label>
+          <label for="vaccine" class="text-light">Vaccinated </label>
           <div class="radio inline">
-            <input type="radio" id="radio-4" name="status" value="Active"
-            <%=user.status=='Active'?'checked':''%>>
+            <input type="radio" id="radio-4" name="vaccine" value="Yes"
+            <%=user.vaccine=='Yes'?'checked':''%>>
             <label for="radio-4" class="radio-label">Yes</label>
           </div>
           <div class="radio inline">
-            <input type="radio" id="radio-5" name="gender" value="Inactive"
-            <%=user.status=='Inactive'?'checked':''%>>
+            <input type="radio" id="radio-5" name="vaccine" value="No"
+            <%=user.vaccine=='No'?'checked':''%>>
             <label for="radio-5" class="radio-label">No</label>
           </div>
         </div>
