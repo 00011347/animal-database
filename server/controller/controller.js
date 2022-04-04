@@ -1,112 +1,88 @@
-var Userdb = require("../model/model");
-
-// creating and saving new and
-exports.create = (req, res) => {
-  // validating requests
-  if (!req.body) {
-    res.status(400).send({ message: "Content cannot be empty!" });
-    return;
-  }
-
-  // new user
-  const user = new Userdb({
-    name: req.body.name,
-    email: req.body.email,
-    gender: req.body.gender,
-    status: req.body.status,
-  });
-
-  // save user in the database
-  user
-    .save(user)
-    .then((data) => {
-      // res.send(data);
-      res.redirect('/add-user')
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Error has occured while creating operation",
-      });
+const User = require("../model/model");
+// Create
+exports.createUser = async (req, res) => {
+  try {
+    const newUser = await User.create(req.body);
+    res.redirect("/all-songs");
+  } catch (err) {
+    res.status(400).json({
+      status: "failed",
+      message: err,
     });
+  }
 };
 
-// retrieve and return all users/ retrive and return a single user
-exports.find = (req, res) => {
-
-  if(req.query.id){
-    const id = req.query.id;
-
-    Userdb.findById(id)
-      .then(data=>{
-        if(!data){
-          res.status(404).send({message:"Not found user with id"+id})
-        }else{
-          res.send(data)
-        }
-      })
-      .catch(err=>{
-        res.status(500).send({message:"Error retrieving user with id"+id})
-      })
-
-  }else{
-    Userdb.find()
-      .then((user) => {
-        res.send(user);
-      })
-      .catch((err) => {
-        res
-          .status(500)
-          .send({
-            message:
-              err.message ||
-              "Error has occured while recapturing user information",
-          });
+// Read
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+    if (!users) {
+      res.status(404).json({
+        message: "Something went wrong",
+        status: 404,
       });
-  };
-
-  }
-
-
-
-// Update a new identified user by user id
-exports.update = (req, res) => {
-  if(!req.body){
-    return res
-      .status(400)
-      .send({message:"Data to update cannot be empty"})
-  }
-
-  const id = req.params.id;
-  Userdb.findByIdAndUpdate(id, req.body,{useFindAndModify:false})
-  .then(data=>{
-    if(!data){
-      res.status(404).send({message:`Cannot Update user with ${id}. User might not be found`})
-    }else{
-      res.send(data)
     }
-  })
-  .catch(err=>{
-    res.status(500).send({message:"Error update user information"})
-  })
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        users,
+      },
+    });
+  } catch (err) {
+    res.status(err.statusCode).json({
+      message: "Couldn't get Songs",
+      status: err.statusCode,
+      reason: err,
+    });
+  }
 };
 
-// Delete a user with specified user id in the request
-exports.delete = (req, res) => {
-  const id = req.params.id;
+exports.getUser = async (req, res) => {
+  const user = await User.findByIdAndUpdate(req.params.id);
+  console.log(user);
+  res.status(200).json({
+    status: "success",
+    data: user,
+  });
+};
 
-  Userdb.findByIdAndDelete(id)
-    .then(data=>{
-      if(!data){
-        res.status(404).send({message:`Cannot delete with id ${id}. Id might be wrong`})
-      }else{
-        res.send({
-          message: "User was deleted successfully!"
-        })
-      }
-    })
-    .catch(err=>{
-      res.status(500).send({
-        message:"Could not delete User with id="+id
-      })
-    })
+// Update
+exports.updateUser = async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        user,
+      },
+    });
+  } catch (err) {
+    res.status(err.statusCode).json({
+      message: "Something went wrong",
+      status: err.statusCode,
+      reason: err,
+    });
+  }
+};
+
+// Delete
+exports.deleteUser = async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    res.status(204).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    res.status(err.statusCode).json({
+      message: "Something went wrong",
+      status: err.statusCode,
+      reason: err,
+    });
+  }
 };

@@ -1,22 +1,25 @@
-const axios = require('axios');
+const axios = require("axios");
+const Userdb = require("../model/model.js");
 
+exports.homeRoutes = async (req, res) => {
+  const users = await Userdb.find({});
+  res.render("index", { users: users });
+};
 
-exports.homeRoutes = (req,res)=>{
-  // Make a get request to /api/users
-  axios.get('http://localhost:3000/api/users')
-  .then(function(response){
-      res.render('index',{users:response.data});
-
-    })
-    .catch(error=>{
-      res.send(err)
-    })
-
-}
-
-exports.add_user=(req,res)=>{
-  res.render('add_user');
-}
-exports.update_user=(req,res)=>{
-  res.render('update_user');
-}
+exports.add_user = (req, res) => {
+  res.render("add_user");
+};
+exports.update_user = async (req, res) => {
+  try {
+    const userData = await Userdb.findByIdAndUpdate(req.params.id);
+    console.log("userData");
+    console.log(userData);
+    console.log("userData");
+    res.render("update_user.ejs", { user: userData });
+  } catch (error) {
+    res.status(404).send({
+      status: "failed",
+      message: error,
+    });
+  }
+};
