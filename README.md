@@ -48,14 +48,15 @@ All field of form are validated. Therefore, the user cannot save/create blank fi
     - /views
 
       - /include
-        \_footer.ejs
-        \_form.ejs
-        \_header.ejs
-        \_show.ejs
-        add_user.ejs
-        index.ejs
-        update_user.ejs
-        update_user.ejs
+        - \_footer.ejs
+        - \_form.ejs
+        - \_header.ejs
+        - \_show.ejs
+
+      add_user.ejs
+      index.ejs
+      update_user.ejs
+      update_user.ejs
 
     config.env
     package-lock.json
