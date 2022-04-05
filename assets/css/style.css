@@ -36,7 +36,7 @@ a {
 .title-header {
   text-align: center;
   padding: 30px 0;
-  color:#1b1945;
+  color: #1b1945;
 }
 .justify-between {
   justify-content: space-between;
@@ -97,7 +97,7 @@ table {
   margin: 0 0.2em;
 }
 .table tr:hover {
-  background-color: #06d6a0;
+  background-color: rgb(10, 185, 171);
 }
 .table tr:hover td > a {
   box-shadow: none;
@@ -186,12 +186,12 @@ table {
   transition: all 250ms ease;
 }
 .radio input[type="radio"]:checked + .radio-label:before {
-  background-color: #16db93;
+  background-color: rgb(10, 185, 171);
   box-shadow: inset 0 0 0 4px #e9ecef;
 }
 .radio input[type="radio"]:focus + .radio-label:before {
   outline: none;
-  border-color: #16db93;
+  border-color: rgb(10, 185, 171);
 }
 .radio input[type="radio"]:disabled + .radio-label:before {
   box-shadow: inset 0 0 0 4px #e9ecef;
@@ -202,7 +202,7 @@ table {
 #add_user .form-group .btn {
   width: 100%;
   padding: 0.9em 1em;
-  background-color: #16db93;
+  background-color: rgb(10, 185, 171);
   border: none;
   font-family: "PT Sans", sans-serif;
   font-size: 1em;
@@ -213,7 +213,7 @@ table {
 #update_user .form-group .btn:hover,
 #add_user .form-group .btn:hover {
   background-color: var(--dark);
-  color: var(--border);
+  color: #fff !important;
 }
 
 /* Carousel */
@@ -222,6 +222,11 @@ table {
   margin: auto;
   width: 50%;
 }
-.nav-title{
-  color:rgb(10, 185, 171) !important;
+.nav-title {
+  color: rgb(10, 185, 171) !important;
+}
+.header-icon {
+  text-align: center;
+  padding-top: 30px;
+  
 }
