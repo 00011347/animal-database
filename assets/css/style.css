@@ -35,7 +35,7 @@ a {
 /* header */
 .title-header {
   text-align: center;
-  padding: 30px 0;
+  padding-top: 30px;
   color: #1b1945;
 }
 .justify-between {
@@ -228,5 +228,17 @@ table {
 .header-icon {
   text-align: center;
   padding-top: 30px;
-  
+}
+.cw {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+/* Footer */
+.footer-id {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 180px;
+  background: var(--dark);
+  color: #979797;
 }
