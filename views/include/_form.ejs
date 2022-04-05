@@ -4,12 +4,18 @@
     <div class="form-group">
       <label for="name" class="text-light">Pet name </label>
       <input type="hidden" name="id" value="" />
-      <input type="text" name="name" value="" placeholder="Jimmy" />
+      <input type="text" name="name" value="" placeholder="Jimmy" required />
     </div>
 
     <div class="form-group">
       <label for="specie" class="text-light">Specie </label>
-      <input type="text" name="specie" value="" placeholder="labrador" />
+      <input
+        type="text"
+        name="specie"
+        value=""
+        placeholder="labrador"
+        required
+      />
     </div>
 
     <div class="form-group">
@@ -21,16 +27,12 @@
           name="gender"
           value="Male"
           checked="checked"
+          required
         />
         <label for="radio-2" class="radio-label">Male </label>
       </div>
       <div class="radio inline">
-        <input
-          type="radio"
-          id="radio-3"
-          name="gender"
-          value="Female"
-        />
+        <input type="radio" id="radio-3" name="gender" value="Female" />
         <label for="radio-3" class="radio-label">Female </label>
       </div>
     </div>
