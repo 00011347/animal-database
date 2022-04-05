@@ -19,49 +19,49 @@ All field of form are validated. Therefore, the user cannot save/create blank fi
   - /assets
 
     - /css
-      - style.css
+      style.css
     - /img
     - /js
-      - index.js
+      index.js
     - /node_modules
     - /server
 
       - /controller
 
-        - controller.js
+        controller.js
 
       - /database
 
-        - connection.js
+        connection.js
 
       - /model
 
-        - model.js
+        model.js
 
       - /routes
 
-        - router.js
+        router.js
 
       - /services
-        - render.js
+        render.js
 
     - /views
 
       - /include
-        - \_footer.ejs
-        - \_form.ejs
-        - \_header.ejs
-        - \_show.ejs
-      - add_user.ejs
-      - index.ejs
-      - update_user.ejs
-      - update_user.ejs
+        \_footer.ejs
+        \_form.ejs
+        \_header.ejs
+        \_show.ejs
+        add_user.ejs
+        index.ejs
+        update_user.ejs
+        update_user.ejs
 
-    - config.env
-    - package-lock.json
-    - package.json
-    - README.md
-    - server.js
+    config.env
+    package-lock.json
+    package.json
+    README.md
+    server.js
 
 ## Intruction of running the app:
 
