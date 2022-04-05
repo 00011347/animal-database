@@ -221,6 +221,7 @@ table {
   display: block;
   margin: auto;
   width: 50%;
+  border-radius: 20px;
 }
 .nav-title {
   color: rgb(10, 185, 171) !important;
